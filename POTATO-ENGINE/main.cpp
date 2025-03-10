@@ -4,7 +4,8 @@
 
 int main()
 {
-    RendererManager::GetInstance().RenderWnd();
+    Renderer.RenderWnd();
+
     std::cout << "Hello World!\n";
 }
 

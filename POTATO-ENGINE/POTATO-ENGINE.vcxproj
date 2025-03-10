@@ -73,6 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(ProjectDir)EngineCore\Include;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)EngineCore\Source;$(SourcePath)</SourcePath>
+    <ExternalIncludePath>$(ProjectDir)Libraries\imgui;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)Libraries\Bullet;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libraries\Bullet;$(ProjectDir)Libraries\imgui;$(ProjectDir)EngineCore\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -139,13 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RendererManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PhysicsManager.h" />
-    <ClInclude Include="RendererManager.h" />
+    <ClInclude Include="EngineCore\Include\ConsoleCore\ConsoleManager.h" />
+    <ClInclude Include="EngineCore\Include\ConsoleCore\ImGuiConsoleManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

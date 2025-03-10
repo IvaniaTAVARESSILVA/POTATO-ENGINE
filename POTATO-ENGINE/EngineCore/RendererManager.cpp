@@ -1,4 +1,4 @@
-#include "RendererManager.h"
+#include "..\EngineCore\Include\RendererManager.h"
 
 RendererManager& RendererManager::GetInstance()
 {
@@ -31,23 +31,25 @@ bool RendererManager::CreateWnd(int width, int height, bool windowed)
 	}
 
 	hwnd = CreateWindowEx(
-		NULL,
-		WndClassName,
-		L"Potato Engine",
-		WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT,
-		CW_USEDEFAULT,
-		width,
-		height,
-		NULL,
-		NULL,
-		hInstance,
-		NULL
+		0,                   // Extended window styles (0 = default)
+		WndClassName,        // Window class name
+		L"Potato Engine",    // Window title
+		WS_OVERLAPPEDWINDOW, // Window style
+		CW_USEDEFAULT,       // Initial X position
+		CW_USEDEFAULT,       // Initial Y position
+		width,               // Width of the window
+		height,              // Height of the window
+		NULL,                // Parent window handle
+		NULL,                // Menu handle
+		hInstance,           // Instance handle
+		NULL                 // Additional parameters
 	);
+
 
 	if (!hwnd)
 	{
 		MessageBox(NULL, L"Error creating window", L"Error", MB_OK | MB_ICONERROR);
+		return false;
 	}
 	ShowWindow(hwnd, SW_SHOW);
 
